@@ -10,360 +10,358 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zuō家协会</title>
     <style>
-        body {
-            font-family: '微软雅黑', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            background-attachment: fixed;
+        Body {
+            Font-family: '微软雅黑', sans-serif;
+            Line-height: 1.6;
+            Margin: 0;
+            Padding: 0;
+            Background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            Background-attachment: fixed;
         }
-        nav {
-            background-color: rgba(44, 62, 80, 0.9);
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        Nav {
+            Background-color: rgba(44, 62, 80, 0.9);
+            Padding: 1rem;
+            Position: sticky;
+            Top: 0;
+z-index: 100;
+            Box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-right: 20px;
-            padding: 8px 15px;
-            transition: all 0.3s;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 1.1em;
+        Nav a {
+            Display: inline-block;   /* transform 对行内非替换元素不生效 */
+            Color: white;
+            Text-decoration: none;
+            Margin-right: 20px;
+            Padding: 8px 15px;
+            Transition: all 0.3s;
+            Border-radius: 20px;
+            Font-weight: bold;
+            Font-size: 1.1em;
         }
-        nav a:hover {
-            background-color: #3498db;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        Nav a:hover {
+            Background-color: #3498db;
+            Transform: translateY(-3px);
+            Box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .active {
-            background-color: #3498db;
-            border-bottom: 2px solid #fff;
+        Nav a.active {
+            Background-color: #3498db;
+            Border-bottom: 2px solid #fff;
         }
         .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background-color: rgba(255, 255, 255, 0.95);
-            min-height: 500px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
+            Max-width: 1200px;
+            Margin: 2rem auto;
+            Padding: 2rem;
+            Background-color: rgba(255, 255, 255, 0.95);
+            Min-height: 500px;
+            Border-radius: 15px;
+            Box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            Position: relative;
+            Overflow: hidden;
         }
         .container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 8px;
-            background: linear-gradient(90deg, #3498db, #2ecc71, #e74c3c, #f39c12, #9b59b6);
-            border-radius: 15px 15px 0 0;
+            Content: '';
+            Position: absolute;
+            Top: 0;
+            Left: 0;
+            Right: 0;
+            Height: 8px;
+            Background: linear-gradient(90deg, #3498db, #2ecc71, #e74c3c, #f39c12, #9b59b6);
+            Border-radius: 15px 15px 0 0;
         }
         .content-section {
-            display: none;
+            Display: none;
         }
         .content-section.active {
-            display: block;
-            animation: fadeIn 0.5s;
+            Display: block;
+            Animation: fadeIn 0.5s;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            From { opacity: 0; transform: translateY(20px); }
+            To { opacity: 1; transform: translateY(0); }
         }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            font-size: 2.2em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        H1 {
+            Color: #2c3e50;
+            Border-bottom: 2px solid #3498db;
+            Padding-bottom: 10px;
+            Font-size: 2.2em;
+            Text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
-        h2 {
-            color: #2c3e50;
-            font-size: 1.8em;
-            margin-top: 1.5em;
-            position: relative;
-            padding-left: 15px;
+        H2 {
+            Color: #2c3e50;
+            Font-size: 1.8em;
+            Margin-top: 1.5em;
+            Position: relative;
+            Padding-left: 15px;
         }
-        h2::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 80%;
-            width: 6px;
-            background: #3498db;
-            border-radius: 3px;
+        H2::before {
+            Content: '';
+            Position: absolute;
+            Left: 0;
+            Top: 50%;
+            Transform: translateY(-50%);
+            Height: 80%;
+            Width: 6px;
+            Background: #3498db;
+            Border-radius: 3px;
         }
-        h3 {
-            color: #2c3e50;
-            margin-top: 1em;
+        H3 {
+            Color: #2c3e50;
+            Margin-top: 1em;
         }
         .article-list {
-            columns: 2;
-            margin-top: 1rem;
-            column-gap: 30px;
+            Columns: 2;
+            Margin-top: 1rem;
+            Column-gap: 30px;
         }
         .article-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
-            padding: 15px;
-            border-radius: 10px;
-            transition: all 0.3s;
-            background: #f8f9fa;
+            Break-inside: avoid;
+            Margin-bottom: 1.5rem;
+            Padding: 15px;
+            Border-radius: 10px;
+            Transition: all 0.3s;
+            Background: #f8f9fa;
         }
         .article-item:hover {
-            background: #e3f2fd;
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            Background: #e3f2fd;
+            Transform: translateX(5px);
+            Box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .article-modal, .member-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 2rem;
-            width: 80%;
-            max-width: 800px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.4);
-            z-index: 1000;
-            border-radius: 15px;
-            max-height: 90vh;
-            overflow-y: auto;
+            Display: none;
+            Position: fixed;
+            Top: 50%;
+            Left: 50%;
+            Transform: translate(-50%, -50%);
+            Background: white;
+            Padding: 2rem;
+            Width: 80%;
+            Max-width: 800px;
+            Box-shadow: 0 0 30px rgba(0,0,0,0.4);
+            Z-index: 1000;
+            Border-radius: 15px;
+            Max-height: 90vh;
+            Overflow-y: auto;
         }
         .member-modal {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            border: 3px solid rgba(255,255,255,0.2);
+            Background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            Color: white;
+            Border: 3px solid rgba(255,255,255,0.2);
         }
         .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(5px);
-            z-index: 999;
+            Display: none;
+            Position: fixed;
+            Top: 0;
+            Left: 0;
+            Width: 100%;
+            Height: 100%;
+            Background: rgba(0,0,0,0.7);
+            Backdrop-filter: blur(5px);
+            Z-index: 999;
         }
         .edit-mode {
-            border: 2px dashed #3498db;
-            padding: 10px;
-            margin: 10px 0;
+            Border: 2px dashed #3498db;
+            Padding: 10px;
+            Margin: 10px 0;
         }
         .edit-tools {
-            text-align: right;
-            margin-top: 1.5rem;
+            Text-align: right;
+            Margin-top: 1.5rem;
         }
         .edit-textarea {
-            width: 100%;
-            height: 300px;
-            padding: 15px;
-            font-family: '微软雅黑', sans-serif;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            font-size: 1em;
+            Width: 100%;
+            Height: 300px;
+            Padding: 15px;
+            Font-family: '微软雅黑', sans-serif;
+            Border-radius: 8px;
+            Border: 1px solid #ddd;
+            Font-size: 1em;
         }
         .read-button {
-            background: linear-gradient(to right, #3498db, #2ecc71);
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: 1em;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            Background: linear-gradient(to right, #3498db, #2ecc71);
+            Color: white;
+            Border: none;
+            Padding: 8px 20px;
+            Border-radius: 30px;
+            Cursor: pointer;
+            Margin-top: 15px;
+            Font-weight: bold;
+            Font-size: 1em;
+            Transition: all 0.3s;
+            Box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
         }
         .read-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+            Transform: translateY(-3px);
+            Box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
         }
         .member-link {
-            color: #e74c3c;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            padding: 3px 8px;
-            border-radius: 5px;
-            display: inline-block;
-            position: relative;
+            Color: #e74c3c;
+            Cursor: pointer;
+            Font-weight: bold;
+            Transition: all 0.3s;
+            Padding: 3px 8px;
+            Border-radius: 5px;
+            Display: inline-block;
+            Position: relative;
         }
         .member-link:hover {
-            background-color: rgba(231, 76, 60, 0.1);
-            transform: translateX(3px);
-            text-decoration: underline;
+            Background-color: rgba(231, 76, 60, 0.1);
+            Transform: translateX(3px);
+            Text-decoration: underline;
         }
         .member-link::after {
-            content: "➔";
-            margin-left: 5px;
-            opacity: 0;
-            transition: opacity 0.3s;
+            Content: '➔';
+            Margin-left: 5px;
+            Opacity: 0;
+            Transition: opacity 0.3s;
         }
         .member-link:hover::after {
-            opacity: 1;
+            Opacity: 1;
         }
         .member-details {
-            padding: 20px;
+            Padding: 20px;
         }
         .member-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            border-bottom: 2px solid rgba(255,255,255,0.3);
-            padding-bottom: 20px;
+            Display: flex;
+            Align-items: center;
+            Margin-bottom: 25px;
+            Border-bottom: 2px solid rgba(255,255,255,0.3);
+            Padding-bottom: 20px;
         }
         .member-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5em;
-            margin-right: 25px;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            Width: 100px;
+            Height: 100px;
+            Border-radius: 50%;
+            Background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            Display: flex;
+            Align-items: center;
+            Justify-content: center;
+            Font-size: 2.5em;
+            Margin-right: 25px;
+            Border: 3px solid white;
+            Box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         .member-name {
-            font-size: 2em;
-            font-weight: bold;
-            margin: 0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            Font-size: 2em;
+            Font-weight: bold;
+            Margin: 0;
+            Text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         .member-title {
-            font-size: 1.2em;
-            opacity: 0.9;
-            margin-top: 5px;
+            Font-size: 1.2em;
+            Opacity: 0.9;
+            Margin-top: 5px;
         }
         .member-info {
-            margin-bottom: 20px;
+            Margin-bottom: 20px;
         }
         .info-label {
-            font-weight: bold;
-            display: inline-block;
-            width: 100px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            Font-weight: bold;
+            Display: inline-block;
+            Width: 100px;
+            Text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
         .info-value {
-            display: inline-block;
+            Display: inline-block;
         }
         .member-quote {
-            font-style: italic;
-            padding: 15px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid white;
+            Font-style: italic;
+            Padding: 15px;
+            Background: rgba(255,255,255,0.15);
+            Border-radius: 10px;
+            Margin: 20px 0;
+            Border-left: 4px solid white;
         }
         .close-member-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8em;
-            cursor: pointer;
-            transition: all 0.3s;
+            Position: absolute;
+            Top: 20px;
+            Right: 20px;
+            Background: none;
+            Border: none;
+            Color: white;
+            Font-size: 1.8em;
+            Cursor: pointer;
+            Transition: all 0.3s;
         }
         .close-member-modal:hover {
-            transform: rotate(90deg) scale(1.2);
+            Transform: rotate(90deg) scale(1.2);
         }
         .footer {
-            text-align: center;
-            padding: 20px;
-            color: white;
-            font-size: 0.9em;
-            background: rgba(0,0,0,0.3);
-            margin-top: 40px;
-            border-radius: 0 0 15px 15px;
+            Text-align: center;
+            Padding: 20px;
+            Color: white;
+            Font-size: 0.9em;
+            Background: rgba(0,0,0,0.3);
+            Margin-top: 40px;
+            Border-radius: 0 0 15px 15px;
         }
         .anniversary-notice {
-            background: linear-gradient(135deg, #6a11cc, #2575fc);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: center;
+            Background: linear-gradient(135deg, #6a11cc, #2575fc);
+            Color: white;
+            Padding: 15px;
+            Border-radius: 10px;
+            Margin: 20px 0;
+            Text-align: center;
         }
-
         .fireworks-link {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 25px 0;
-            text-align: center;
-            border: 2px solid #f1c40f;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            Background: linear-gradient(135deg, #e74c3c, #c0392b);
+            Color: white;
+            Padding: 15px;
+            Border-radius: 10px;
+            Margin: 25px 0;
+            Text-align: center;
+            Border: 2px solid #f1c40f;
+            Box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         .fireworks-link a {
-            display: inline-block;
-            background: white;
-            color: #6a11cb;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            border: 2px solid transparent;
-            transition: all 0.3s;
+            Display: inline-block;
+            Background: white;
+            Color: #6a11cb;
+            Padding: 12px 30px;
+            Border-radius: 25px;
+            Text-decoration: none;
+            Font-weight: bold;
+            Margin-top: 10px;
+            Border: 2px solid transparent;
+            Transition: all 0.3s;
         }
         
         .fireworks-link a:hover {
-            background: #f1f1f1;
-            border-color: #3498db;
+            Background: #f1f1f1;
+            Border-color: #3498db;
         }
 
         /* 烟花样式 */
         #fireworksCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            display: none;
+            Position: fixed;
+            Top: 0;
+            Left: 0;
+            Width: 100%;
+            Height: 100%;
+            Pointer-events: none;
+z-index: 9999;
+            Display: none;
         }
-
         .anniversary-active #fireworksCanvas {
-            display: block;
+            Display: block;
         }
 
         .fireworks-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(106, 17, 203, 0.9);
-            color: white;
-            padding: 20px 40px;
-            border-radius: 15px;
-            font-size: 2rem;
-            font-weight: bold;
-            text-align: center;
-            z-index: 10000;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-            animation: pulse 2s infinite;
-            display: none;
+            Position: fixed;
+            Top: 50%;
+            Left: 50%;
+            Transform: translate(-50%, -50%);
+            Background: rgba(106, 17, 203, 0.9);
+            Color: white;
+            Padding: 20px 40px;
+            Border-radius: 15px;
+            Font-size: 2rem;
+            Font-weight: bold;
+            Text-align: center;
+z-index: 10000;
+            Box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            Animation: pulse 2s infinite;
+            Display: none;
         }
-
         @keyframes pulse {
             0% { transform: translate(-50%, -50%) scale(1); }
             50% { transform: translate(-50%, -50%) scale(1.1); }
@@ -371,76 +369,76 @@
         }
 
         .anniversary-active .fireworks-message {
-            display: block;
+            Display: block;
         }
 
         .crazy-stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
+            Position: absolute;
+            Width: 100%;
+            Height: 100%;
+            Top: 0;
+            Left: 0;
+            Pointer-events: none;
+z-index: -1;
+            Overflow: hidden;
         }
         .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle linear infinite;
+            Position: absolute;
+            Background: white;
+            Border-radius: 50%;
+            Animation: twinkle linear infinite;
         }
         @keyframes twinkle {
             0% { opacity: 0; transform: scale(0); }
             50% { opacity: 1; transform: scale(1); }
             100% { opacity: 0; transform: scale(0); }
         }
-
         /* 响应式设计 */
         @media (max-width: 768px) {
             .article-list {
-                columns: 1;
+                Columns: 1;
             }
             .container {
-                padding: 1.5rem;
-                margin: 1rem;
+                Padding: 1.5rem;
+                Margin: 1rem;
             }
             .member-modal {
-                width: 90%;
-                padding: 1.5rem;
+                Width: 90%;
+                Padding: 1.5rem;
             }
             .member-header {
-                flex-direction: column;
-                text-align: center;
+                Flex-direction: column;
+                Text-align: center;
             }
             .member-avatar {
-                margin-right: 0;
-                margin-bottom: 15px;
+                Margin-right: 0;
+                Margin-bottom: 15px;
             }
             .countdown-header {
-                font-size: 1.5rem;
+                Font-size: 1.5rem;
             }
             .days-number {
-                font-size: 2.8rem;
+                Font-size: 2.8rem;
             }
         }
-    </style>
+</style>
 </head>
 <body>
     <!-- 新主题的星星背景 -->
     <div class="crazy-stars" id="crazyStars"></div>
     
     <nav>
-    <a href="#" onclick="showContent('home')" class="active"><i class="fas fa-home"></i> 首页</a>
-    <a href="#" onclick="showContent('about')"><i class="fas fa-users"></i> 关于我们</a>
-    <a href="#" onclick="showContent('articles')"><i class="fas fa-book"></i> 作品和其他</a>
+    <a href="#" onclick="showContent('home', event)" class="active"><i class="fas fa-home"></i> 首页</a>
+    <a href="#" onclick="showContent('about', event)"><i class="fas fa-users"></i> 关于我们</a>
+    <a href="#" onclick="showContent('articles', event)"><i class="fas fa-book"></i> 文章和其他</a>
     </nav>
 
     <div class="container">
         <div id="home" class="content-section active">
             <h1>欢迎来到作zuō家协会（海螺文学社）😊</h1>
             <p>xx小学（虽然现在成员们都上初中了）海螺文学社是一群普通的学生自发组织而成的文学创作团体，约创立于2024年11月末。</p>
-            <p>最近更新时间：2026/--/--，2.2.6-1121</p>
+            <p>最近更新时间：2026/--/--</p>
+            <p>海螺文学社网站编辑权限现已对所有人开放；账号与授权请通过管理员获取，本站不在页面源码中存放任何凭据。</p>
             
             <h2>我们的行动</h2>
             <ul>
@@ -457,7 +455,7 @@
             <div class="fireworks-link">
                 <h3 style="margin-top: 0;">烟花观赏区</h3>
                 <p>点击下方按钮进入独立烟花燃放站，随时随地庆祝！虽然没什么好庆祝的</p>
-                <a href="fireworks.html">🚀 进入烟花燃放区</a>
+                <a href="fireworks.html" target="_blank" rel="noopener noreferrer">🚀 进入烟花燃放区</a>
                 <p style="font-size: 12px; margin-top: 10px; color: rgba(255,255,255,0.8);">
                     (新窗口打开，可随时返回主站)
                 </p>
@@ -467,8 +465,8 @@
         <div id="about" class="content-section">
             <h1>关于我们</h1>
             <h2>组织简介</h2>
-            <p>xx小学海螺文学社成立于2024年11月末，个人成员9人。协会目前超4月无任何人工作，同时成立二周年贺图正在创作</p>
-            <p>以及，“海螺文学社”之名已被XX班41号、52号、54号察觉</p>
+            <p>xx小学海螺文学社成立于2024年11月末，个人成员9人。协会目前超2月无任何人工作，同时成立二周年贺图正在创作</p>
+            <p>以及，“海螺文学社”之名已被A3班41号、52号、54号察觉</p>
             <h2>目前成员（排名无先后之分）</h2>
             <ul>
                 <li><span class="member-link" onclick="showMemberInfo('siri', event)">Siri（下一次任期26.12.20至27.1.28）</span></li>
@@ -498,8 +496,8 @@
                 <h2>现在所有人都在消极怠工，所以你不用往下翻了</h2>
                  <div class="article-list">
                     <div class="article-item">
-                        <h3>写字板</h3>
-                        <p>可当做备忘录等使用！</p>
+                        <h3>本期限时开放内容：《诞生于新兴》</h3>
+                        <p>第一段开放时间：9/5至9/11<br></p>
                         <button class="read-button" onclick="showArticle('article1')">🚀 查看和编辑</button>
                     </div>
                     <div class="article-item">
@@ -508,7 +506,7 @@
                     </div>
                     <div class="article-item">
                         <h3>《班里部分女生👧的罪行》</h3>
-                        <p>作者：Siri|字数：600|状态：已完成<br>作家协会最早的文章之一，批判现实文学，奠定了整个作家协会的发展基础，目前为"镇会之宝"之一</p>
+                        <p>作者：Siri|字数：600|状态：已完成<br>作家协会最早的文章之一，批判现实文学，奠定了整个作家协会的发展基础，目前为”镇会之宝”之一</p>
                     </div>
                     <div class="article-item">
                         <h3>《Level School》</h3>
@@ -523,12 +521,17 @@
                         <p>作者：后悔药|字数：2185|状态：暂停更新<br>中式··题材的小说，用最锋利的文笔描写最痛苦的处境，X市的学生们该何去何从？</p>
                    </div>
                 </div>
+            </div>
 
             <div class="subsection">
-                <h2>漏洞</h2>
+                <h2>其他内容</h2>
                 <ul>
-                    <li>点击“前往烟花站”、“🚀 查看和编辑”、单击网站空白处(仅移动端)和各成员详情并返回后，顶部导航栏的高亮显示会消失</li>
-                    <li>烟花站内多次点击“发射烟花”后会重复触发，导致烟花动画逐步变快，此时点击“停止烟花”后仅能使动画还原1次（已修复）</li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
             </div>
         </div>
@@ -562,8 +565,7 @@
     <canvas id="fireworksCanvas"></canvas>
     <div class="fireworks-message">周年快乐！</div>
 
-    <!-- Font Awesome 图标库 -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome 图标由 head 中的 cdnjs 样式表提供；原 kit 脚本跨域 403，已移除 -->
     
     <script>
         // 创建动态星星背景（新主题功能）
@@ -610,15 +612,29 @@
             });
             // 修复：使用event.target前先检查
             if (event && event.target) {
-                event.target.classList.add('active');
+                event.currentTarget.classList.add('active');
             }
         }
-
+        
         // 文章编辑功能（旧主题功能）
+        // 安全基线：回显前统一转义，避免 localStorage 内容被当作 HTML 执行
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+        function renderArticleText(text) {
+            // 兼容旧版本把换行存成 <br> 的本地数据
+            return escapeHtml(String(text).replace(/<br\s*\/?>/gi, '\n')).replace(/\n/g, '<br>');
+        }
+
         const articles = {
             article1: {
                 title: '写字板',
-                content: localStorage.getItem('article1') || ``
+                content: localStorage.getItem('article1') || ``           
             },
             article2: {
                 title: '《Level School》',
@@ -630,8 +646,8 @@
         function showArticle(articleId) {
             currentArticleId = articleId;
             const article = articles[articleId];
-            document.getElementById('articleTitle').innerHTML = article.title;
-            document.getElementById('articleContent').innerHTML = article.content;
+            document.getElementById('articleTitle').textContent = article.title;
+            document.getElementById('articleContent').innerHTML = renderArticleText(article.content);
             document.getElementById('modalOverlay').style.display = 'block';
             document.getElementById('articleModal').style.display = 'block';
         }
@@ -646,7 +662,7 @@
             const isEditing = contentDiv.classList.toggle('edit-mode');
             
             if(isEditing) {
-                const currentContent = contentDiv.innerHTML.replace(/<br\s*\/?>/g, '\n');
+                const currentContent = escapeHtml(articles[currentArticleId].content);
                 contentDiv.innerHTML = `
                     <textarea class="edit-textarea" id="editContent">${currentContent}</textarea>
                     <div style="text-align:right; margin-top:10px">
@@ -659,13 +675,13 @@
                     </div>
                 `;
             } else {
-                contentDiv.innerHTML = articles[currentArticleId].content;
+                contentDiv.innerHTML = renderArticleText(articles[currentArticleId].content);
             }
         }
 
         function saveChanges() {
             const newContent = document.getElementById('editContent').value;
-            articles[currentArticleId].content = newContent.replace(/\n/g, '<br>');
+            articles[currentArticleId].content = newContent;
             localStorage.setItem(currentArticleId, articles[currentArticleId].content);
             toggleEdit();
         }
@@ -784,7 +800,7 @@
                     <div><span class="info-label">专长：</span><span class="info-value">${member.specialty}</span></div>
                 </div>
                 
-                <div class="member-quote">"${member.quote}"</div>
+                <div class="member-quote">”${member.quote}”</div>
                 
                 <div class="member-info">
                     <span class="info-label">人物简介：</span>
